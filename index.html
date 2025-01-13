@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System</title>
+    <link rel="stylesheet" href="./index.css">
+    <script defer src="./index.js"></script>
+    
+</head>
+<body>
+    <header>
+        <h1>Employee Management System</h1>
+    </header>
+    <div class="container">
+        <!-- Employee List View -->
+        <div id="employee-list">
+            <div id="s-f-b">
+                <input id="search-input" type="text" placeholder="Search by name, ID, or position" oninput="applyFilters()">
+                <select id="filter-select" onchange="applyFilters()">
+                    <option value="">All Positions</option>
+                </select>
+                <button id="addEmp" onclick="showAddEmployeeForm()">Add Employee</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="employee-table-body"></tbody>
+            </table>
+        </div>
+
+        <!-- Employee Details View -->
+        <div id="employee-details" class="hidden">
+            <button id="back" onclick="showEmployeeList()">Back</button>
+            <div id="items">
+                <h2>Employee Details</h2>
+            <p><strong>ID:</strong> <span id="detail-id"></span></p>
+            <p><strong>Name:</strong> <span id="detail-name"></span></p>
+            <p><strong>Position:</strong> <span id="detail-position"></span></p>
+            <button id=""onclick="editEmployee()">Edit</button>
+            <button onclick="deleteEmployee()">Delete</button>
+            </div>
+        </div>
+
+        <!-- Add/Edit Employee Form -->
+        <div id="employee-form" class="hidden">
+            <button onclick="showEmployeeList()">Back</button>
+            <h2 id="form-title">Add Employee</h2>
+            <form onsubmit="saveEmployee(event)">
+                <div class="form-group">
+                    <label for="employee-id">ID</label>
+                    <input type="text" id="employee-id" required>
+                </div>
+                <div class="form-group">
+                    <label for="employee-name">Name</label>
+                    <input type="text" id="employee-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="employee-position">Position</label>
+                    <input type="text" id="employee-position" required>
+                </div>
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+   
+</body>
+</html>
