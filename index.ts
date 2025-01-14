@@ -1,3 +1,19 @@
+function saveToLocalStorage() {
+    localStorage.setItem("employees", JSON.stringify(employees));
+}
+
+function loadFromLocalStorage() {
+    const storedData = localStorage.getItem("employees");
+    if (storedData) {
+        employees.push(...JSON.parse(storedData));
+    }
+}
+
+// Load data from local storage and render on page load
+loadFromLocalStorage();
+renderEmployeeList();
+
+
 interface Employee {
     id: string;
     name: string;
@@ -99,7 +115,7 @@ function saveEmployee(event: Event) {
         // Add new employee
         employees.push({ id, name, position });
     }
-
+    // saveToLocalStorage(); // Save changes
     renderEmployeeList();
     showEmployeeList();
 }
@@ -120,6 +136,7 @@ function deleteEmployee() {
     if (selectedEmployee) {
         const index = employees.findIndex(emp => emp.id === selectedEmployee!.id);
         employees.splice(index, 1);
+        saveToLocalStorage(); // Save changes
         renderEmployeeList();
         showEmployeeList();
     }

@@ -1,5 +1,18 @@
 var employees = [];
 var selectedEmployee = null;
+function saveToLocalStorage() {
+    localStorage.setItem("employees", JSON.stringify(employees));
+}
+function loadFromLocalStorage() {
+    var storedData = localStorage.getItem("employees");
+    if (storedData) {
+        employees.push.apply(employees, JSON.parse(storedData));
+    }
+}
+// Load data from local storage and render on page load
+loadFromLocalStorage();
+renderEmployeeList();
+
 function renderEmployeeList() {
     var tbody = document.getElementById("employee-table-body");
     var filterSelect = document.getElementById("filter-select");
@@ -71,6 +84,7 @@ function saveEmployee(event) {
         // Add new employee
         employees.push({ id: id, name: name, position: position });
     }
+    saveToLocalStorage(); // Save changes
     renderEmployeeList();
     showEmployeeList();
 }
@@ -88,6 +102,7 @@ function deleteEmployee() {
     if (selectedEmployee) {
         var index = employees.findIndex(function (emp) { return emp.id === selectedEmployee.id; });
         employees.splice(index, 1);
+        saveToLocalStorage(); // Save changes
         renderEmployeeList();
         showEmployeeList();
     }

@@ -111,7 +111,7 @@
             border-radius: 20px;
         }
         #items{
-            padding-left: 10rem;
+            padding-left: 8rem;
             padding-top: 4rem;
         }
         #back:hover{
@@ -142,6 +142,15 @@
             #items{
                 padding-left: 2rem;
                 padding-top: 4rem;
+                margin-top: 20px;
+            }
+            #employee-details{
+                width:60%;
+                top: 33%;
+            left: 20%;
+            }
+            #items>h2{
+                margin-bottom: 40px;
             }
         }
  
