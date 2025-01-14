@@ -28,6 +28,7 @@
             padding: 2%;
             width: 100%;
             height:100%;
+           
         }
 
         #search-input{
@@ -96,6 +97,7 @@
             width: 40%;
             height: 50%;
             background-color: #d6dee7;
+            box-shadow: 10px 10px 5px lightblue;
             position: absolute;
             top: 40%;
             left: 30%;
@@ -111,9 +113,24 @@
             border-radius: 20px;
         }
         #items{
-            padding-left: 8rem;
+            padding-left: 9rem;
             padding-top: 4rem;
         }
+        #items>p{
+            margin-bottom: 2%;
+        }
+        #edit{
+            margin-right: 25%;
+            border-radius: 20px;
+        }
+        #del{
+            border-radius: 20px;
+
+        }
+        #del:hover{
+            background-color: red;
+        }
+
         #back:hover{
             background-color: black;
         }
@@ -151,6 +168,9 @@
             }
             #items>h2{
                 margin-bottom: 40px;
+            }
+            #items>h2{
+                margin-bottom: 15px;
             }
         }
  
